@@ -1,5 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 
+let
+   sharp-lcd = pkgs.callPackage ./sharp-lcd.nix {};
+in
 {
   nixpkgs.hostPlatform = lib.mkDefault "riscv64-linux";
   nixpkgs.overlays = [ (import ./overlay.nix) ];
@@ -28,11 +31,11 @@
 
     consoleLogLevel = lib.mkDefault 7;
     kernelPackages = pkgs.linuxPackages_nezha;
-    kernelParams = [ "console=ttyS0,115200n8" "console=tty0" "earlycon=sbi" ];
+    kernelParams = [ "console=ttyS0,115200n8" "console=tty1" "earlycon=sbi" ];
 
     initrd.availableKernelModules = lib.mkForce [ ];
 
-    extraModulePackages = [ pkgs.linuxPackages_nezha.rtl8723ds ];
+    extraModulePackages = [ pkgs.linuxPackages_nezha.rtl8723ds sharp-lcd ];
     # Exclude zfs
     supportedFilesystems = lib.mkForce [ ];
   };
