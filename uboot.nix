@@ -27,16 +27,13 @@ buildUBoot {
     owner = "smaeul";
     repo = "u-boot";
     # Last git revision from the `d1-wip` branch:
-    rev = "afc07cec423f17ebb4448a19435292ddacf19c9b";
-    sha256 = "sha256-ozwTTiS6PvYbv40w2xRX3fe7Pt4ZOjkVfX9pwt1JNGE=";
+    rev = "528ae9bc6c55edd3ffe642734b4132a8246ea777";
+    sha256 = "sha256-OtmGIqRN6f4ab5Xob4X/e7q4wzsA87qvR672zlMT0+U=";
   };
 
-  defconfig = "lichee_rv_defconfig";
+  defconfig = "mangopi_mq_pro_defconfig";
   OPENSBI = "${opensbi}/share/opensbi/lp64/generic/firmware/fw_dynamic.bin";
   extraMeta.platforms = [ "riscv64-linux" ];
 
-  filesToInstall = [ "u-boot.toc1" ];
-  postBuild = ''
-    ./tools/mkimage -T sunxi_toc1 -d ${toc1Config} u-boot.toc1
-  '';
+  filesToInstall = [ "u-boot-sunxi-with-spl.bin" ];
 }

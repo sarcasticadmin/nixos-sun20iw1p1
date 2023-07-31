@@ -9,8 +9,7 @@
   sdImage = {
     firmwarePartitionOffset = 20;
     postBuildCommands = ''
-      dd conv=notrunc if=${pkgs.sun20i-d1-spl}/boot0_sdcard_sun20iw1p1.bin of=$img bs=512 seek=16
-      dd conv=notrunc if=${pkgs.ubootLicheeRV}/u-boot.toc1 of=$img bs=512 seek=32800
+      dd if=${pkgs.ubootLicheeRV}/u-boot-sunxi-with-spl.bin of=$img bs=1024 seek=8 conv=notrunc
     '';
     populateRootCommands = ''
       mkdir -p ./files/boot
