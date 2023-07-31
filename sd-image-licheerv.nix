@@ -7,7 +7,7 @@
 
   # Boot0 -> U-Boot
   sdImage = {
-    firmwarePartitionOffset = 20;
+    #firmwarePartitionOffset = 20;
     postBuildCommands = ''
       dd if=${pkgs.ubootLicheeRV}/u-boot-sunxi-with-spl.bin of=$img bs=1024 seek=8 conv=notrunc
     '';
