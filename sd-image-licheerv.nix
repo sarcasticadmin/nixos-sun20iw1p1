@@ -5,6 +5,12 @@
   nixpkgs.overlays = [ (import ./overlay.nix) ];
   imports = [ "${modulesPath}/installer/sd-card/sd-image.nix" ];
 
+  hardware.deviceTree = {
+    enable = true;
+    filter = lib.mkDefault "sun20i-d1-lichee-rv-dock.dtb";
+    overlays = [{ name = "sharp"; dtsFile = ./sharp.dts; }];
+  };
+
   # Boot0 -> U-Boot
   sdImage = {
     #firmwarePartitionOffset = 20;

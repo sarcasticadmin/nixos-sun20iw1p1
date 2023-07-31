@@ -25,7 +25,7 @@ linuxKernel.manualConfig {
   extraMeta.branch = "riscv/d1-wip";
 
   # DTB is already loaded from uboot.toc1
-  stdenv = stdenv.override (prev: lib.recursiveUpdate prev { hostPlatform.linux-kernel.DTB = false; });
+  stdenv = stdenv.override (prev: lib.recursiveUpdate prev { hostPlatform.linux-kernel.DTB = true; });
 
   configfile = ./config.nezha;
   allowImportFromDerivation = true;
