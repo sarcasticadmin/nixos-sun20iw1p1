@@ -31,7 +31,7 @@ buildUBoot {
     sha256 = "sha256-OtmGIqRN6f4ab5Xob4X/e7q4wzsA87qvR672zlMT0+U=";
   };
 
-  defconfig = "mangopi_mq_pro_defconfig";
+  defconfig = "nezha_defconfig";
   OPENSBI = "${opensbi}/share/opensbi/lp64/generic/firmware/fw_dynamic.bin";
   extraMeta.platforms = [ "riscv64-linux" ];
 
