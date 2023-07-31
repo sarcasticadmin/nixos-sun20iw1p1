@@ -32,6 +32,8 @@
 
     initrd.availableKernelModules = lib.mkForce [ ];
 
+    kernelModules = [ "sharp" ];
+
     extraModulePackages = [ pkgs.linuxPackages_nezha.rtl8723ds pkgs.linuxPackages_nezha.sharp-lcd ];
     # Exclude zfs
     supportedFilesystems = lib.mkForce [ ];
