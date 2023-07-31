@@ -22,5 +22,6 @@ rec {
     let origin = prev.linuxKernel.packagesFor kernel; in
     origin // {
       rtl8723ds = origin.callPackage ./rtl8723ds.nix { };
+      sharp-lcd = origin.callPackage ./sharp-lcd.nix {};
     };
 }
